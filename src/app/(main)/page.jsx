@@ -9,6 +9,7 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 export default function Home() {
   return (
     <>
+    <h1>test</h1>
       <Hero />
       <PrimaryFeatures />
       <SecondaryFeatures />
