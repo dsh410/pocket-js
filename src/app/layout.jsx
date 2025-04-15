@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import clsx from 'clsx'
+import Script from 'next/script'
 
 import '@/styles/tailwind.css'
 
@@ -20,8 +21,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={clsx('bg-gray-50 antialiased', inter.variable)}>
-      <body>{children}</body>
-    </html>
+    <html lang="en">
+    <head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-3YVWS1GYE5"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-3YVWS1GYE5');
+        `}
+      </Script>
+    </head>
+    <body>{children}</body>
+  </html>
   )
 }
